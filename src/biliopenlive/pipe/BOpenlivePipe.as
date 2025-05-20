@@ -100,6 +100,21 @@ package biliopenlive.pipe {
      * @playerversion AIR 51.0
      * @see https://open-live.bilibili.com/document/74eec767-e594-7ddd-6aba-257e8317c05d
      * @see https://open-live.bilibili.com/document/f9ce25be-312e-1f4a-85fd-fef21f1637f8
+     * @example 以下示例展示使用BOpenlivePipe、SignUtility实现向服务器请求维持生命周期：
+     * <listing version="3.0">
+     *      SignUtility.accessKeySecret = "从开放平台申请的access_secret";
+     *      SignUtility.accessKeyId = "从开放平台申请的access_key";
+     *      BOpenlivePipe.bOpenlivePipe.appId = "项目ID";
+     *      BOpenlivePipe.bOpenlivePipe.linkStart("主播身份码");
+     *      NativeApplication.nativeApplication.addEventListener(Event.EXITING, function(e: Event): void {
+     *          e.preventDefault();
+     *          BOpenlivePipe.bOpenlivePipe.linkEnd();
+     *          NativeApplication.nativeApplication.removeEventListener(Event.EXITING, arguments.callee);
+     *          BOpenlivePipe.bOpenlivePipe.addEventListener(BOpenliveHTTPSEvent.END, function(e: BOpenliveHTTPSEvent): void {
+     *              NativeApplication.nativeApplication.exit();
+     *          });
+     *      });
+     * </listing>
      */
     public class BOpenlivePipe extends EventDispatcher {
         private static var _instance: BOpenlivePipe;
@@ -143,7 +158,10 @@ package biliopenlive.pipe {
         }
         /**
          * <p>
-         * 发送开始请求。需要传递code并提前设置好appId，否则会抛出异常。
+         * 发送开始请求。需要传递code并提前设置好appId、accessKeyId和accessKeySecret，否则会抛出异常。
+         * </p>
+         * <p>
+         * 通过SignUtility类为accessKeyId和accessKeySecret赋值。
          * </p>
          * @param code 主播的身份码
          */
