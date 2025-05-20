@@ -11,7 +11,6 @@ docs/
 .vscode/
 
 # Executables
-*.swf
 *.air
 *.ipa
 *.apk

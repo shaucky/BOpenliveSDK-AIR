@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<application xmlns="http://ns.adobe.com/air/application/51.0">
+  <id>Demo</id>
+  <versionNumber>0.9</versionNumber>
+  <versionLabel>1.0</versionLabel>
+  <filename>start</filename>
+  <description/>
+  <name>start</name>
+  <copyright/>
+  <initialWindow>
+    <content>Demo.swf</content>
+    <systemChrome>standard</systemChrome>
+    <requestedDisplayResolution>high</requestedDisplayResolution>
+    <transparent>false</transparent>
+    <visible>false</visible>
+    <fullScreen>false</fullScreen>
+    <aspectRatio>portrait</aspectRatio>
+    <renderMode>direct</renderMode>
+    <depthAndStencil>true</depthAndStencil>
+    <maximizable>true</maximizable>
+    <minimizable>true</minimizable>
+    <resizable>true</resizable>
+  </initialWindow>
+  <gpuPreference>discrete</gpuPreference>
+  <windows>
+    <UseWebView2>true</UseWebView2>
+  </windows>
+  <icon/>
+  <customUpdateUI>false</customUpdateUI>
+  <allowBrowserInvocation>false</allowBrowserInvocation>
+</application>
