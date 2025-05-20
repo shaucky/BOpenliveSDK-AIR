@@ -1,0 +1,14 @@
+{
+	"type": "lib",
+	"config": "air",
+	"doc": "true",
+	"compilerOptions": {
+		"source-path": [
+			"src"
+		],
+		"include-sources": [
+			"src"
+		],
+		"output": "bin/BOpenliveSDK.swc"
+	}
+}
