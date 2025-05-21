@@ -2,7 +2,7 @@
     <img src="https://raw.githubusercontent.com/shaucky/BOpenliveSDK-AIR/refs/heads/v2/readme/logo.png" alt="BOpenliveSDK-AIR" width="128">
 </p>
 
-[![License](https://img.shields.io/badge/Version-1.0.0-orange)]()
+[![Project Version](https://img.shields.io/badge/Version-1.0.0-orange)]()
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![AIR Version](https://img.shields.io/badge/AIR-51.0+-darkred.svg)](https://airsdk.harman.com)
 
@@ -22,9 +22,9 @@ BOpenliveSDK-AIR是用于<b>AIR项目接入哔哩哔哩直播开放平台</b>的
 
 ## 快速开始
 
-项目目录下包含一个`demo`目录，该目录下提供的示例依赖于Adobe Animate工具，但也可以提取其中部分资源仅依靠AIR SDK自行开发。
+项目目录下包含一个`demo`目录，该目录下提供的示例依赖于Adobe Animate工具，但也可以提取其中部分资源仅依靠AIR SDK自行集成。
 
-该目录下已包含`BOpenliveSDK.swc`，即BOpenliveSDK-AIR的程序集。
+`demo`目录下也包含`BOpenliveSDK.swc`，即BOpenliveSDK-AIR的程序集。
 
 ### 使用Animate开始
 
@@ -44,7 +44,9 @@ BOpenliveSDK-AIR是用于<b>AIR项目接入哔哩哔哩直播开放平台</b>的
 
 在`demo`目录下提供的`bOpenliveAuthPanel.swf`可供其它AIR项目加载使用，其中包含一个显示对象，并提供了用户交互相关的事件派发。具体来说：
 
-1. 用户点击开始游戏按钮派发`Event.CONNECT`；
-2. 用户点击记住身份码单选框派发`Event.CHANGE`；
+1. 用户点击开始游戏按钮派发`Event.CONNECT`，可通过code变量获取填写的身份码；
+2. 用户点击记住身份码选框派发`Event.CHANGE`，可通过checkmark变量获取勾选状态；
 3. 面板过渡动画播放完毕派发`Event.COMPLETE`；
 4. 更多事件遵循AIR运行时API的派发约定。
+
+更多使用方式可参考`demo/biliopenlive/display/BOpenliveAuthPanel.as`的实现。
