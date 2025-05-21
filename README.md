@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="readme/logo.png" alt="BOpenliveSDK-AIR">
+    <img src="https://raw.githubusercontent.com/shaucky/BOpenliveSDK-AIR/refs/heads/v2/readme/logo.png" alt="BOpenliveSDK-AIR" width="128">
 </p>
 
 [![License](https://img.shields.io/badge/Version-1.0.0-orange)]()
@@ -34,11 +34,11 @@ BOpenliveSDK-AIR是用于<b>AIR项目接入哔哩哔哩直播开放平台</b>的
 
 在时间轴面板（`Window` > `Timeline`）中选中文档场景的第1帧，然后打开动作面板（`Window` > `Actions`），在脚本中填入key、secret和项目ID。
 
-![](readme/quickstartwithanimate_1.png)
+![](https://raw.githubusercontent.com/shaucky/BOpenliveSDK-AIR/refs/heads/v2/readme/quickstartwithanimate_1.png)
 
 测试影片（`Control` > `Test Movie` > `Test`）。
 
-![](readme/quickstartwithanimate_2.png)
+![](https://raw.githubusercontent.com/shaucky/BOpenliveSDK-AIR/refs/heads/v2/readme/quickstartwithanimate_2.png)
 
 ### 使用AIR SDK开始
 
