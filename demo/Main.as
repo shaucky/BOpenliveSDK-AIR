@@ -44,14 +44,20 @@
 				BOpenlivePipe.bOpenlivePipe.linkStart(_code);
 				BOpenlivePipe.bOpenlivePipe.addEventListener(BOpenliveHTTPSEvent.START, function(e :BOpenliveHTTPSEvent): void {
 					if (e.data.code == 0) {
-						_authPanel.removeEventListener(Event.COMPLETE, exit);
-						_authPanel.hide();
-						_authPanel.addEventListener(Event.COMPLETE, function(e: Event): void {
-							(_authPanel as DisplayObject).stage.nativeWindow.close();
+						if (_authPanel != null) {
+							_authPanel.removeEventListener(Event.COMPLETE, exit);
+							_authPanel.hide();
+							_authPanel.addEventListener(Event.COMPLETE, function(e: Event): void {
+								(_authPanel as DisplayObject).stage.nativeWindow.close();
+								stage.nativeWindow.title = "项目初始窗口";
+								stage.nativeWindow.activate();
+								stage.nativeWindow.addEventListener(Event.CLOSING, onOriginalWindowClosing);
+							});
+						} else {
 							stage.nativeWindow.title = "项目初始窗口";
 							stage.nativeWindow.activate();
 							stage.nativeWindow.addEventListener(Event.CLOSING, onOriginalWindowClosing);
-						});
+						}
 					} else {
 						NativeApplication.nativeApplication.exit();
 					}
@@ -68,12 +74,15 @@
 					break;
 				}
 			}
+			if (_invokeCode) {
+				startLink();
+			}
 		}
 		private function onAuthPanelLoadComplete(e: Event): void {
 			var window: NativeWindow;
 			var options: NativeWindowInitOptions = new NativeWindowInitOptions();
-			_authPanel = _authPanelLoader.content;
 			if (!_invokeCode) {
+				_authPanel = _authPanelLoader.content;
 				options.systemChrome = NativeWindowSystemChrome.NONE;
 				options.renderMode = NativeWindowRenderMode.DIRECT;
 				options.transparent = true;
@@ -106,16 +115,6 @@
 						_code = e.target.code;
 						startLink();
 					});
-				});
-			} else {
-				BOpenlivePipe.bOpenlivePipe.addEventListener(BOpenliveHTTPSEvent.START, function(e: BOpenliveHTTPSEvent): void {
-					if (e.data.code == 0) {
-						stage.nativeWindow.title = "项目初始窗口";
-						stage.nativeWindow.activate();
-						stage.nativeWindow.addEventListener(Event.CLOSING, onOriginalWindowClosing);
-					} else {
-						NativeApplication.nativeApplication.exit();
-					}
 				});
 			}
 		}
