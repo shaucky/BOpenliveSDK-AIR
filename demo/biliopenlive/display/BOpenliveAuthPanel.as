@@ -27,6 +27,7 @@
 		private var _buttonClose: SimpleButton;
 		private var _animationForward: Boolean;
 		private var _animationPercent: Number;
+		private var _lastTime: Number;
 		public function get checkmark(): Boolean {
 			return _checkmark.visible;
 		}
@@ -117,6 +118,7 @@
 			}
 		}
 		private function onTimer(e: TimerEvent): void {
+			var delta: Number = ((new Date()).valueOf() - _lastTime) / 1000 / 0.664;
 			if (_animationForward) {
 				if (_animationPercent >= 1) {
 					_animationPercent = 1;
@@ -146,9 +148,11 @@
 					scaleY = 1 + _animationPercent * 0.36;
 				}
 			}
-			_animationPercent += 0.04;
+			_animationPercent += delta;
+			_lastTime = (new Date()).valueOf();
 		}
 		public function show(): void {
+			_lastTime = (new Date()).valueOf();
 			_animationForward = true;
 			_animationPercent = 0;
 			_animationTimer.reset();
@@ -158,6 +162,7 @@
 			visible = true;
 		}
 		public function hide(): void {
+			_lastTime = (new Date()).valueOf();
 			_animationForward = false;
 			_animationPercent = 0;
 			_animationTimer.reset();

@@ -31,6 +31,9 @@
 		private var _access_secret: String;
 		
 		public function Main() {
+			sdkInit();
+		}
+		private function sdkInit(): void {
 			_authPanelLoader.load(new URLRequest("bOpenliveAuthPanel.swf"));
 			_authPanelLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, onAuthPanelLoadComplete);
 			NativeApplication.nativeApplication.addEventListener(InvokeEvent.INVOKE, onApplicationInvoke);
@@ -42,7 +45,7 @@
 				SignUtility.accessKeySecret = _access_secret;
 				BOpenlivePipe.bOpenlivePipe.appId = _appId;
 				BOpenlivePipe.bOpenlivePipe.linkStart(_code);
-				BOpenlivePipe.bOpenlivePipe.addEventListener(BOpenliveHTTPSEvent.START, function(e :BOpenliveHTTPSEvent): void {
+				BOpenlivePipe.bOpenlivePipe.addEventListener(BOpenliveHTTPSEvent.START, function(e: BOpenliveHTTPSEvent): void {
 					if (e.data.code == 0) {
 						if (_authPanel != null) {
 							_authPanel.removeEventListener(Event.COMPLETE, exit);
@@ -52,6 +55,7 @@
 								stage.nativeWindow.title = "项目初始窗口";
 								stage.nativeWindow.activate();
 								stage.nativeWindow.addEventListener(Event.CLOSING, onOriginalWindowClosing);
+								_authPanel.removeEventListener(Event.COMPLETE, arguments.callee);
 							});
 						} else {
 							stage.nativeWindow.title = "项目初始窗口";
@@ -59,7 +63,7 @@
 							stage.nativeWindow.addEventListener(Event.CLOSING, onOriginalWindowClosing);
 						}
 					} else {
-						NativeApplication.nativeApplication.exit();
+						addAuthPanelListener();
 					}
 				});
 			}
@@ -105,16 +109,22 @@
 				}
 				(_authPanel as EventDispatcher).addEventListener(Event.COMPLETE, function(e: Event): void {
 					_authPanel.addEventListener(Event.COMPLETE, exit);
-					_authPanel.addEventListener(Event.CONNECT, function(e: Event): void {
-						_sharedObject.data.rememberCode = _authPanel.checkmark;
-						if (_authPanel.checkmark) {
-							_sharedObject.data.code = _authPanel.code;
-						} else {
-							_sharedObject.data.code = "";
-						}
-						_code = e.target.code;
-						startLink();
-					});
+					addAuthPanelListener();
+				});
+			}
+		}
+		private function addAuthPanelListener(): void {
+			if (_authPanel != null) {
+				_authPanel.addEventListener(Event.CONNECT, function(e: Event): void {
+					_sharedObject.data.rememberCode = _authPanel.checkmark;
+					if (_authPanel.checkmark) {
+						_sharedObject.data.code = _authPanel.code;
+					} else {
+						_sharedObject.data.code = "";
+					}
+					_authPanel.removeEventListener(Event.CONNECT, arguments.callee);
+					_code = e.target.code;
+					startLink();
 				});
 			}
 		}
