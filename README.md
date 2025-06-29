@@ -2,7 +2,7 @@
     <img src="https://raw.githubusercontent.com/shaucky/BOpenliveSDK-AIR/refs/heads/v2/readme/logo.png" alt="BOpenliveSDK-AIR" width="128">
 </p>
 
-[![Project Version](https://img.shields.io/badge/Version-1.0.0-orange)]()
+[![Project Version](https://img.shields.io/badge/Version-1.0.1-orange)]()
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![AIR Version](https://img.shields.io/badge/AIR-51.0+-darkred.svg)](https://airsdk.harman.com)
 
@@ -42,10 +42,20 @@ BOpenliveSDK-AIR是用于<b>AIR项目接入哔哩哔哩直播开放平台</b>的
 
 ### 使用AIR SDK开始
 
-在`demo`目录下提供的`bOpenliveAuthPanel.swf`可供其它AIR项目加载使用，其中包含一个显示对象，并提供了用户交互相关的事件派发。具体来说：
+有许多支持使用AIR SDK开发的工具，例如VS Code、IDEA等。它们支持纯ActionScript代码开发而不依赖Animate的FLA文档动画。如何使用这些工具开发AIR项目并不在本文档的职能之内。此处只简单说明这些工具接入BOpenliveSDK-AIR的思路。
 
-1. 用户点击开始游戏按钮派发`Event.CONNECT`，可通过code变量获取填写的身份码；
-2. 用户点击记住身份码选框派发`Event.CHANGE`，可通过checkmark变量获取勾选状态；
+（以下示例默认VS Code已安装ActionScript & MXML扩展）
+
+将该仓库克隆或下载到本地，然后将根目录下的`src`目录设为编译路径。例如在VS Code中，需要在`asconfig.json`的`compilerOptions`对象内的`source-path`数组中正确添加`src`的路径。
+
+或者，也可以提取`demo`目录下的`BOpenliveSDK.swc`，然后将其设为库路径。例如在VS Code中，需要在`asconfig.json`的`compilerOptions`对象内的`library-path`数组中正确添加`BOpenliveSDK.swc`的路径。
+
+完成上述步骤后，BOpenliveSDK-AIR的核心库已经可以编译至项目中。
+
+如果还需要使用遵循官方身份码界面设计规范的显示对象，在`demo`目录下提供的`bOpenliveAuthPanel.swf`可作为认证面板界面加载使用。其中包含一个显示对象，提供用户交互相关的事件派发，但不包含任何实际业务。具体来说：
+
+1. 用户点击开始游戏按钮派发`Event.CONNECT`，可通过公共变量`code`获取填写的身份码；
+2. 用户点击记住身份码选框派发`Event.CHANGE`，可通过公共变量`checkmark`获取勾选状态；
 3. 面板过渡动画播放完毕派发`Event.COMPLETE`；
 4. 更多事件遵循AIR运行时API的派发约定。
 
