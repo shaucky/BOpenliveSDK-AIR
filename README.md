@@ -54,9 +54,10 @@ BOpenliveSDK-AIR是用于<b>AIR项目接入哔哩哔哩直播开放平台</b>的
 
 如果还需要使用遵循官方身份码界面设计规范的显示对象，在`demo`目录下提供的`bOpenliveAuthPanel.swf`可作为认证面板界面加载使用。其中包含一个显示对象，提供用户交互相关的事件派发，但不包含任何实际业务。具体来说：
 
-1. 用户点击开始游戏按钮派发`Event.CONNECT`，可通过公共变量`code`获取填写的身份码；
-2. 用户点击记住身份码选框派发`Event.CHANGE`，可通过公共变量`checkmark`获取勾选状态；
+1. 用户点击开始游戏按钮派发`Event.CONNECT`，可通过公共属性`code`获取填写的身份码；
+2. 用户点击记住身份码选框派发`Event.CHANGE`，可通过公共属性`checkmark`获取勾选状态；
 3. 面板过渡动画播放完毕派发`Event.COMPLETE`；
-4. 更多事件遵循AIR运行时API的派发约定。
+4. 提供了公共方法`show()`和`hide()`播放打开与关闭的过渡动画；
+5. 更多事件遵循AIR运行时API的派发约定。
 
 更多使用方式可参考`demo/biliopenlive/display/BOpenliveAuthPanel.as`的实现。
