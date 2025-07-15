@@ -1,15 +1,9 @@
 package biliopenlive.net {
-    import air.net.WebSocket;
-    import biliopenlive.utils.Logger;
-    import flash.events.Event;
-    import flash.events.EventDispatcher;
-    import flash.events.TimerEvent;
-    import flash.events.IOErrorEvent;
-    import flash.events.WebSocketEvent;
-    import flash.utils.ByteArray;
-    import flash.utils.Endian;
-    import flash.utils.Timer;
-    import biliopenlive.events.BOpenliveWSSEvent;
+    import air.net.*;
+    import biliopenlive.events.*;
+    import biliopenlive.utils.*;
+    import flash.events.*;
+    import flash.utils.*;
 
     /**
      * <p>

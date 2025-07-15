@@ -1,9 +1,7 @@
 package biliopenlive.utils {
-    import air.security.Digest;
-    import flash.net.URLRequest;
-    import flash.net.URLVariables;
-    import flash.net.URLRequestHeader;
-    import flash.utils.ByteArray;
+    import air.security.*;
+    import flash.net.*;
+    import flash.utils.*;
 
     /**
      * <p>

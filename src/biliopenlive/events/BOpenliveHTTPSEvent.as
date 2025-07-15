@@ -1,5 +1,5 @@
 package biliopenlive.events {
-    import flash.events.Event;
+    import flash.events.*;
 
     /**
      * <p>

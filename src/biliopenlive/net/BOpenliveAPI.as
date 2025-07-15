@@ -1,8 +1,6 @@
 package biliopenlive.net {
-    import biliopenlive.utils.SignUtility;
-    import flash.net.URLRequest;
-    import flash.net.URLLoader;
-    import flash.net.URLLoaderDataFormat;
+    import biliopenlive.utils.*;
+    import flash.net.*;
 
     /**
      * <p>

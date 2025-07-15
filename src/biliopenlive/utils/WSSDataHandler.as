@@ -1,6 +1,6 @@
 package biliopenlive.utils {
-    import biliopenlive.pipe.BOpenlivePipe;
-    import biliopenlive.events.BOpenliveWSSEvent;
+    import biliopenlive.events.*;
+    import biliopenlive.pipe.*;
 
     /**
      * <p>

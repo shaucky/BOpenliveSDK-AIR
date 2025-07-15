@@ -1,8 +1,8 @@
 package biliopenlive.utils {
-    import biliopenlive.net.BOpenliveAPI;
-    import flash.events.TimerEvent;
-    import flash.utils.Timer;
-    import flash.net.URLLoader;
+    import biliopenlive.net.*;
+    import flash.events.*;
+    import flash.net.*;
+    import flash.utils.*;
 
     /**
      * <p>HeartbeatTimer类用于管理BOpenlive SDK的心跳周期。</p>

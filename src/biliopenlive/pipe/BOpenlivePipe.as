@@ -1,15 +1,9 @@
 package biliopenlive.pipe {
-    import biliopenlive.events.BOpenliveHTTPSEvent;
-    import biliopenlive.net.BOpenliveAPI;
-    import biliopenlive.utils.Logger;
-    import biliopenlive.utils.HeartbeatTimer;
-    import flash.events.EventDispatcher;
-    import flash.events.Event;
-    import flash.events.IOErrorEvent;
-    import flash.events.TimerEvent;
-    import flash.net.URLLoader;
-    import biliopenlive.net.BOpenliveWebSocket;
-    import biliopenlive.events.BOpenliveWSSEvent;
+    import biliopenlive.events.*;
+    import biliopenlive.net.*;
+    import biliopenlive.utils.*;
+    import flash.events.*;
+    import flash.net.*;
 
     /**
      * 向API发送开始请求且返回后派发。
