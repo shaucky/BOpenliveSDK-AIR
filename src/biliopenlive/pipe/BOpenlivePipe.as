@@ -234,7 +234,7 @@ package biliopenlive.pipe {
                 if (responseJSON.code != 0) {
                     Logger.warning("HTTPS心跳失败");
                     Logger.warning(responseJSON.code + ":" + responseJSON.message);
-                    if (responseJSON.data.failed_game_ids != null) {
+                    if (responseJSON.data?.failed_game_ids != null) {
                         Logger.warning("存在心跳失败的场次：" + responseJSON.data.failed_game_ids);
                     }
                 } else {

@@ -72,7 +72,7 @@ package biliopenlive.utils {
             }
             output += json.uname + " 投喂 " + json.gift_name;
             if (json.combo_gift) {
-                output += "x" + json.combo_info.combo_base_num + json.combo_info.combo_count + "连击";
+                output += "x" + json.combo_info?.combo_base_num + json.combo_info?.combo_count + "连击";
             } else {
                 if (json.gift_num > 1) {
                     output += "x" + json.gift_num;

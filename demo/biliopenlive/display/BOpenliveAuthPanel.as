@@ -1,8 +1,14 @@
 ﻿package biliopenlive.display {
-	import flash.display.*;
-	import flash.events.*;
-	import flash.text.*;
-	import flash.utils.*;
+	import flash.display.Shape;
+	import flash.display.SimpleButton;
+	import flash.display.Sprite;
+	import flash.display.Stage;
+	import flash.events.Event;
+	import flash.events.FocusEvent;
+	import flash.events.MouseEvent;
+	import flash.text.TextField;
+	import flash.utils.Timer;
+	import flash.events.TimerEvent;
 
 	[Event(name="change", type="flash.events.Event")]
 	[Event(name="complete", type="flash.events.Event")]

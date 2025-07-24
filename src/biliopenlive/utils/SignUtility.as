@@ -48,7 +48,7 @@ package biliopenlive.utils {
             if (cookie != null) {
                 request.requestHeaders.push(new URLRequestHeader("Cookie", cookie));
             }
-            request.requestHeaders.removeAt(request.requestHeaders.push(new URLRequestHeader("Referer", "https://www.bilibili.com"))); //!important
+            request.requestHeaders.push(new URLRequestHeader("Referer", "https://www.bilibili.com")); //!important
             byteArray.writeUTFBytes(jsonParam);
             byteArray.position = 0;
             request.data = byteArray;

@@ -25,7 +25,7 @@ package biliopenlive.utils {
          * @param content 要输出的内容。
          */
         public static function message(content: Object): void {
-            trace("〔Logger message: " + content.toString() + "〕");
+            trace("〔Logger message: " + content?.toString() + "〕");
         }
         /**
          * <p>
@@ -34,7 +34,7 @@ package biliopenlive.utils {
          * @param content 要警告的内容。
          */
         public static function warning(content: Object): void {
-            trace("［Logger warning: " + content.toString() + "］");
+            trace("［Logger warning: " + content?.toString() + "］");
         }
         /**
          * <p>
@@ -43,7 +43,7 @@ package biliopenlive.utils {
          * @param content 要报错的内容。
          */
         public static function error(content: Object): void {
-            trace("〈Logger error: " + content.toString() + "〉");
+            trace("〈Logger error: " + content?.toString() + "〉");
             throw(new Error("Error #2044: Unhandled Error:.", 2044));
         }
     }
